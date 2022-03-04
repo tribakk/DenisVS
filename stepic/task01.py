@@ -2,7 +2,8 @@ def is_valid_walk(walk):
     count_n = 0
     count_s = 0
     count_w = 0
-    count_e = 0    
+    count_e = 0   
+    # ХУЙ 
     for element in walk:
         if element == 'n':
             count_n += 1
