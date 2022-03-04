@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "stepic", "stepic\stepic.pyproj", "{3096DD07-1703-4AC2-ACDE-D6939CFBA7AC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3096DD07-1703-4AC2-ACDE-D6939CFBA7AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3096DD07-1703-4AC2-ACDE-D6939CFBA7AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD297D0A-8778-4810-AB5E-DA39A93E6CD7}
+	EndGlobalSection
+EndGlobal
