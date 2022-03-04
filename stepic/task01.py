@@ -20,3 +20,4 @@ def is_valid_walk(walk):
         return ('false')
 
 is_valid_walk(['w','e','w','e','w','e','w','e','w','e','w','e'])
+#Хуй
