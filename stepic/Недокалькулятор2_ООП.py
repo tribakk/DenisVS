@@ -1,3 +1,8 @@
+def createString(lenght, string):
+        spaceSize = lenght - len(string)
+        newStr = " " * spaceSize + string
+        return newStr
+
 class calcClass(object):
     originalProblem = ""
     firstValue = ""
@@ -35,18 +40,21 @@ class calcClass(object):
             exit()
 
     def prepareForPrint(self):
+        #вначале все числа преобразуем в строки, так проще будет узнать их длину
         firstValueStr = str(self.firstValue)
         secondValueStr = str(self.secondValue)
         resultStr = str(self.result)
+        #ищем элемент с максимальной длинной
         lenghtCol = max(len(firstValueStr), len(secondValueStr))
         lenghtCol = max(lenghtCol, len(self.operator))
         lenghtCol = max(lenghtCol, len(resultStr))
         lenghtCol += 5 #зазор между колонками сделаем побольше
 
-        self.firstValueStr = " " * (lenghtCol - len(firstValueStr)) + firstValueStr
-        self.secondValueStr = " " * (lenghtCol - len(secondValueStr)) + secondValueStr
-        self.operatorStr = " " * (lenghtCol - len(self.operator)) + self.operator
-        self.resultStr = " " * (lenghtCol - len(resultStr)) + resultStr
+        #подготовим строки, которые сразу можно выводить на печать
+        self.firstValueStr = createString(lenghtCol, firstValueStr)
+        self.secondValueStr = createString(lenghtCol, secondValueStr)
+        self.operatorStr = createString(lenghtCol, self.operator)
+        self.secondValueStr = createString(lenghtCol, resultStr)
 
 def arithmetic_arranger(problems, condition=False):
     calc_array = []
