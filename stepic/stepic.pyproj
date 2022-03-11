@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3096dd07-1703-4ac2-acde-d6939cfba7ac</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>task01.py</StartupFile>
+    <StartupFile>Недокалькулятор2_ООП.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,8 +21,11 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="maker_wrapper.py" />
     <Compile Include="stepic.py" />
     <Compile Include="task01.py" />
+    <Compile Include="Недокалькулятор.py" />
+    <Compile Include="Недокалькулятор2_ООП.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
