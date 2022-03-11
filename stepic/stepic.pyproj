@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3096dd07-1703-4ac2-acde-d6939cfba7ac</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Недокалькулятор2_ООП.py</StartupFile>
+    <StartupFile>Недокалькулятор3.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,6 +26,7 @@
     <Compile Include="task01.py" />
     <Compile Include="Недокалькулятор.py" />
     <Compile Include="Недокалькулятор2_ООП.py" />
+    <Compile Include="Недокалькулятор3.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
