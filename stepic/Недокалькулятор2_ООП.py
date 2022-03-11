@@ -10,10 +10,10 @@ class calcClass(object):
     operator = ""
     result = 0
 
-    firstValueStr = ""
-    secondValueStr = ""
-    operatorStr = ""
+    firstStringStr = ""
+    secondStringStr = ""
     resultStr = ""
+    minusStr = ""
 
     lenghtCol = 0
 
@@ -29,12 +29,14 @@ class calcClass(object):
             self.result = int(self.firstValue) + int(self.secondValue)
         if (self.operator == "-"):
             self.result = int(self.firstValue) - int(self.secondValue)
+        if (self.operator == "*"):
+            self.result = int(self.firstValue) * int(self.secondValue)
 
     def printResult(self):
         print(self.result)
 
     def checkOperator(self):
-        bGoodOperator = self.operator == "+" or self.operator == "-"
+        bGoodOperator = self.operator == "+" or self.operator == "-" or self.operator == "*"
         if (not bGoodOperator):
             print('Error: Operator must be ‘+’ or ‘-‘')
             exit()
@@ -45,16 +47,16 @@ class calcClass(object):
         secondValueStr = str(self.secondValue)
         resultStr = str(self.result)
         #ищем элемент с максимальной длинной
-        lenghtCol = max(len(firstValueStr), len(secondValueStr))
-        lenghtCol = max(lenghtCol, len(self.operator))
+        whiteSpaceTrimForSecondString = 2
+        lenghtCol = max(len(firstValueStr), len(secondValueStr) + len(self.operator) + whiteSpaceTrimForSecondString)
         lenghtCol = max(lenghtCol, len(resultStr))
-        lenghtCol += 5 #зазор между колонками сделаем побольше
+        #lenghtCol += 5 #зазор между колонками сделаем побольше
 
         #подготовим строки, которые сразу можно выводить на печать
-        self.firstValueStr = createString(lenghtCol, firstValueStr)
-        self.secondValueStr = createString(lenghtCol, secondValueStr)
-        self.operatorStr = createString(lenghtCol, self.operator)
-        self.secondValueStr = createString(lenghtCol, resultStr)
+        self.firstStringStr = createString(lenghtCol, firstValueStr)
+        self.secondStringStr = self.operator + " " * (lenghtCol - len(self.operator) - len(secondValueStr)) + secondValueStr
+        self.resultStr = createString(lenghtCol, resultStr)
+        self.minusStr = "-" * (lenghtCol - 0)
 
 def arithmetic_arranger(problems, condition=False):
     calc_array = []
@@ -71,21 +73,21 @@ def arithmetic_arranger(problems, condition=False):
         calc_elem.calc()
         calc_elem.prepareForPrint()
 
-    list_value1 = ""
-    list_value2 = ""
-    list_operator = ""
+    list_firstString = ""
+    list_secondString = ""
+    list_minus = ""
     list_result = ""
     for calc_elem in calc_array:
-        list_value1 += calc_elem.firstValueStr
-        list_value2 += calc_elem.secondValueStr
-        list_operator += calc_elem.operatorStr
-        list_result += calc_elem.resultStr
+        list_firstString += calc_elem.firstStringStr + " "
+        list_secondString += calc_elem.secondStringStr + " "
+        list_minus += calc_elem.minusStr + " "
+        list_result += calc_elem.resultStr + " "
 
-    print(list_value1)
-    print(list_operator)
-    print(list_value2)
+    print(list_firstString)
+    print(list_secondString)
+    print(list_minus)
     print(list_result)
 
 
     
-arithmetic_arranger(['3801 - 2', '123 + 49', '1234543535 + 123'], True)
+arithmetic_arranger(['3801 - 2 + 7', '123 + 49 ', '1234543535 + 123 + 9'], True)
