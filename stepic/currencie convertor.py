@@ -18,14 +18,11 @@ while True:
     amount = input("Enter amount you want to convert: ")
     final_request = "/currency/convert?format=json&from=" + request_currencie1+"&to=" + request_currencie2 + "&amount=" + amount
     conn.request("GET",final_request , headers=headers)
-
-
     res = conn.getresponse()
     data = res.read()
-
     result = data.decode("utf-8")
 
-    #convert result string to dict
+    # Convert result string to dictionary
     result_as_dict = ast.literal_eval (result)
 
     result_inside = result_as_dict["rates"]
