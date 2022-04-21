@@ -52,14 +52,18 @@ class Category:
             return False
 
     def print_self(self):
-        n = (30 - len(str(self.category))) / 2
+        n = (30 - len(str(self.category))) / 2  # Calculating how many * to print in title
         stars = '*' * int(n)
         title = f'{stars}{self.category}{stars}'
 
         print(title)
-        # TODO correct so output will be right aligned
+        # TODO Исправить - почему длина числа считается без символов после точки?
         for entry in self.ledger:
-            spaces = (25 - len((entry['description'][0:23])) - len(str(entry['amount'])[0:7])) * ' '
+            amount_str = str(entry['amount'])[0:7]
+            description_str = entry['description'][0:23]
+            #print('Длина описания', len(description_str))
+            #print('Длина числа', len(amount_str))
+            spaces = (30 - len(description_str) - len(amount_str)) * ' '
             print(entry['description'][0:23], spaces, str("{:.2f}".format(entry['amount'])[0:7]))
         print('Total: ', str("{:.2f}".format(self.get_balance())[0:7]))
 
@@ -83,17 +87,17 @@ def create_spend_chart(list_of_categories):
 
     values_as_list = [*category_percent.values()]
 
-    x = 100
+    x = 100  # For percentage column
 
     def roundup(number):
         return int(math.ceil(number / 10.0)) * 10
 
     print('Percentage spent by category')
     for n in range(11):
-        print(f"{(3 - len(str(x)))*' '}{x}| ", end='')
+        print(f"{(3 - len(str(x)))*' '}{x}| ", end='')  # Printing percentage column
         for i in range(len(values_as_list)):
             if roundup(values_as_list[i]) >= x:
-                print('o ', end=' ')
+                print('o ', end=' ')  # Printing o if category percentage == percentage column
             else:
                 print('  ', end=' ')
         print()
@@ -112,6 +116,4 @@ def create_spend_chart(list_of_categories):
 #TODO почему-то если передать в метод transfer название другой категории,
 # это триггерит print_self() видимо из-за def __str__(self)
 
-#TODO настроить корректное отображение в print_self
-
-#TODO немного глючит передача description при transfer
+#TODO глючит передача description при transfer - в print_self() отображается пустота вместо description трансфера
